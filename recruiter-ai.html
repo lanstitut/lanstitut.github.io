@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		  
+
+	</head>
+	<body class="is-preload">
+
+		<script>
+			// Generic API call function
+			function callRecruiterAPIGeneric(url, data, headers) {
+			  fetch(url, {
+				method: 'POST',
+				headers: headers,
+				body: JSON.stringify(data)
+			  })
+				.then(response => {
+				  if (!response.ok) {
+					throw new Error('API request failed');
+				  }
+				  return response.json();
+				})
+				.then(result => {
+				  document.getElementById('responseMessage').innerText = 'API Call Successful! ✅';
+				  document.getElementById('responseMessage').style.display = 'block';
+				  document.getElementById('errorMessage').style.display = 'none';
+				  console.log('API response:', result);
+				})
+				.catch(error => {
+				  document.getElementById('errorMessage').innerText = 'Error: API call failed. ❌';
+				  document.getElementById('errorMessage').style.display = 'block';
+				  document.getElementById('responseMessage').style.display = 'none';
+				  console.error('Error calling API:', error);
+				});
+			}
+		
+			// Handle form submission
+			function submitForm(event) {
+			  event.preventDefault(); // Prevent page reload
+		
+			  // Get form values
+			  const candidateName = document.getElementById('name').value;
+			  const candidateNumber = document.getElementById('phone').value;
+			  const agentId = document.getElementById('agendtid').value;
+			  const apiKey = document.getElementById('api-key').value;
+			  const phoneId = document.getElementById('phone-id').value;
+		
+			  // Prepare data for API
+			  const requestData = {
+				name: candidateName,
+				to_number: candidateNumber,
+				agent_id: agentId,
+				agent_phone_number_id: phoneId
+			  };
+
+			  const headers = {
+				'Content-type': "application/json",
+				"xi-api-key": apiKey
+			  };
+		
+			  // Call API with data
+			  const apiUrl = 'https://api.elevenlabs.io/v1/convai/twilio/outbound_call'; 
+		
+			  callRecruiterAPIGeneric(apiUrl, requestData, headers);
+			}
+		  </script>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Andromiq</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Products</a></li>
+							<li><a href="generic.html">Andromeda + IQ</a></li>
+							<li><a href="elements.html">do not open</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h3>Your will immediately get a call from us!</h3>
+
+									
+			
+									<section class="split contact">
+										<form method="post" onsubmit="event.preventDefault(); callRecruiterAPIGeneric();">
+											<div class="fields">
+												<div class="field">
+													<label for="name">Full Name</label>
+													<input style="width: 25%" ="text" name="name" id="name" />
+												</div>
+												<div class="field">
+													<label for="phone">Phone Number</label>
+													<input style="width: 25%;"="text" name="email" id="email" />
+												</div>
+												<div class="field">
+													<label for="api-key">API KEY</label>
+													<input style="width: 25%;"="text" name="email" id="email" />
+												</div>
+												<div class="field">
+													<label for="agent-id">Agent ID</label>
+													<input style="width: 25%;"="text" name="email" id="email" />
+												</div>
+												<div class="field">
+													<label for="phone-id">Agent Phone ID</label>
+													<input style="width: 25%;"="text" name="email" id="email" />
+												</div>
+											</div>
+											<ul>
+												<li><input class="primary" type="submit" value="Call Me!" /></li>
+											</ul>
+										</form>
+									</section>
+
+					</div>
+
+				<!-- Footer -->
+					
+						
+					
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
