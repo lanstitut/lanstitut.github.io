@@ -26,19 +26,10 @@
 				  return response.json();
 				})
 				.then(result => {
-				  // Call onSuccess callback if API call succeeds
-        			  if (onSuccess && typeof onSuccess === 'function') {
-            			    onSuccess(result);
-        			  } else {
             			    console.log('API call successful! ✅', result);
-        			  }
-				  console.log('API response:', result);
+        	
 				})
 				.catch(error => {
-				  // Call onError callback if API call fails
-        			  if (onError && typeof onError === 'function') {
-            			    onError(error);
-        			  } else {
             			    console.error('Error calling API ❌:', error);
         			  }
 				});
@@ -112,7 +103,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h3>Your will immediately get a call from us!</h3>
+									<h3>Hang tight... a call is coming faster than your Wi-Fi on a good day!</h3>
 
 									
 			
@@ -121,23 +112,23 @@
 											<div class="fields">
 												<div class="field">
 													<label for="name">Full Name</label>
-													<input style="width: 25%" ="text" name="name" id="name" />
+													<input style="width: 30%" ="text" name="name" id="name" />
 												</div>
 												<div class="field">
 													<label for="phone">Phone Number</label>
-													<input style="width: 25%;"="text" name="phone" id="phone" />
+													<input style="width: 30%;"="text" name="phone" id="phone" />
 												</div>
 												<div class="field">
 													<label for="api-key">API KEY</label>
-													<input style="width: 25%;"="text" name="api-key" id="api-key" />
+													<input style="width: 30%;"="text" name="api-key" id="api-key" />
 												</div>
 												<div class="field">
 													<label for="agent-id">Agent ID</label>
-													<input style="width: 25%;"="text" name="agent-id" id="agent-id" />
+													<input style="width: 30%;"="text" name="agent-id" id="agent-id" />
 												</div>
 												<div class="field">
 													<label for="phone-id">Agent Phone ID</label>
-													<input style="width: 25%;"="text" name="phone-id" id="phone-id" />
+													<input style="width: 30%;"="text" name="phone-id" id="phone-id" />
 												</div>
 											</div>
 											<ul>
