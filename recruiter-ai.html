@@ -60,7 +60,12 @@
 				name: candidateName,
 				to_number: candidateNumber,
 				agent_id: agentId,
-				agent_phone_number_id: phoneId
+				agent_phone_number_id: phoneId,
+				conversation_initiation_client_data: {
+					"dynamic_variables": {
+						"user_name": candidateName;
+					}
+				}
 			  };
 
 			  const headers = {
