@@ -54,17 +54,17 @@
 			  const agentId = document.getElementById('agent-id').value;
 			  const apiKey = document.getElementById('api-key').value;
 			  const phoneId = document.getElementById('phone-id').value;
-		
-			  // Prepare data for API
+
+			  const dynamic_variables = {
+				  user_name: candidateName
+			  }
 			  const requestData = {
 				name: candidateName,
 				to_number: candidateNumber,
 				agent_id: agentId,
 				agent_phone_number_id: phoneId,
 				conversation_initiation_client_data: {
-					"dynamic_variables": {
-						"user_name": candidateName;
-					}
+					dynamic_variables: dynamic_variables
 				}
 			  };
 
