@@ -26,16 +26,21 @@
 				  return response.json();
 				})
 				.then(result => {
-				  document.getElementById('responseMessage').innerText = 'API Call Successful! ✅';
-				  document.getElementById('responseMessage').style.display = 'block';
-				  document.getElementById('errorMessage').style.display = 'none';
+				  // Call onSuccess callback if API call succeeds
+        			  if (onSuccess && typeof onSuccess === 'function') {
+            			    onSuccess(result);
+        			  } else {
+            			    console.log('API call successful! ✅', result);
+        			  }
 				  console.log('API response:', result);
 				})
 				.catch(error => {
-				  document.getElementById('errorMessage').innerText = 'Error: API call failed. ❌';
-				  document.getElementById('errorMessage').style.display = 'block';
-				  document.getElementById('responseMessage').style.display = 'none';
-				  console.error('Error calling API:', error);
+				  // Call onError callback if API call fails
+        			  if (onError && typeof onError === 'function') {
+            			    onError(error);
+        			  } else {
+            			    console.error('Error calling API ❌:', error);
+        			  }
 				});
 			}
 		
